@@ -28,10 +28,10 @@ class AppFixtures extends Fixture
     {
 		if (count($manager->getRepository("App\Entity\Catalogue\Article")->findAll()) == 0) {
 			$ebay = new Ebay($this->logger);
-			//$ebay->setCategory('CDs');
-			//$keywords = 'Ibrahim Maalouf' ;
-			$ebay->setCategory('Livres');
-			$keywords = 'Harry Potter' ;
+			$ebay->setCategory('CDs');
+			$keywords = 'Ibrahim Maalouf' ;
+			//$ebay->setCategory('Livres');
+			//$keywords = 'Harry Potter' ;
 
 			$formattedResponse = $ebay->findItemsAdvanced($keywords, 6);
 			file_put_contents("ebayResponse.xml",$formattedResponse) ;
