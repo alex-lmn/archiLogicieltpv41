@@ -15,12 +15,6 @@ divs_jplayer.forEach(function(div_jplayer) {
 			, { swfPath : '/js/jplayer-2.9.2/jplayer', supplied : 'mp3', wmode: 'window',
 			useStateClassSkin: true, autoBlur: false, smoothPlayBar: true,
 			keyEnabled: true });
-			$('#jquery_jplayer_'+idArticle).bind($.jPlayer.event.play, function() {
-				$('#jplayerInspector').jPlayerInspector( {
-					jPlayer: $('#jquery_jplayer_'+idArticle),
-				    visible: true  
-				}); 
-			});
 	}
 	
 	
