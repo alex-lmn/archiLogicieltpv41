@@ -406,7 +406,8 @@ textarea:focus {
  font-family:Comic Sans MS,sans-serif
 }
 * {
- box-sizing:border-box
+ box-sizing:border-box;
+ border-radius: 10px;
 }
 body {
  background-color:#fff;
