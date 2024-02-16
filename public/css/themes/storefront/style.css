@@ -409,11 +409,11 @@ textarea:focus {
  box-sizing:border-box
 }
 body {
- background-color:#fff
+ background-color:#fff;
 }
 .site,
 body {
- overflow-x:hidden
+ overflow-x:hidden,
 }
 .header-widget-region,
 .site-content {
