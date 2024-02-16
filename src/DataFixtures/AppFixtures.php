@@ -30,32 +30,14 @@ class AppFixtures extends Fixture
 			$ebay = new Ebay($this->logger);
 			$ebay->setCategory('CDs');
 			$keywords = 'Johnny Hallyday' ;
-			//$ebay->setCategory('Livres');
-			//$keywords = 'Harry Potter' ;
 
-			$formattedResponse = $ebay->findItemsAdvanced($keywords, 6);
+			$formattedResponse = $ebay->findItemsAdvanced($keywords, 30);
 			file_put_contents("ebayResponse.xml",$formattedResponse) ;
 			$xml = simplexml_load_string($formattedResponse);
 
 			if ($xml !== false) {
 				foreach ($xml->children() as $child_1) {
 					if ($child_1->getName() === "item") {
-						if ($ebay->getParentCategoryIdById($child_1->primaryCategory->categoryId) == $ebay->getParentCategoryIdByName("Livres")) {
-							$entityLivre = new Livre();
-							$entityLivre->setId((int) $child_1->itemId);
-							$title = $ebay->getItemSpecific("Book Title", $child_1->itemId) ;
-							if ($title == null) $title = $child_1->title ;
-							$entityLivre->setTitre($title);
-							$author = $ebay->getItemSpecific("Author", $child_1->itemId) ;
-							if ($author == null) $author = "" ;
-							$entityLivre->setAuteur($author);
-							$entityLivre->setISBN("");
-							$entityLivre->setPrix((float) $child_1->sellingStatus->currentPrice); 
-							$entityLivre->setDisponibilite(1);
-							$entityLivre->setImage($child_1->galleryURL);
-							$manager->persist($entityLivre);
-							$manager->flush();
-						}
 						if ($ebay->getParentCategoryIdById($child_1->primaryCategory->categoryId) == $ebay->getParentCategoryIdByName("CDs")){
 							$entityMusique = new Musique();
 							$entityMusique->setId((int) $child_1->itemId);
@@ -107,41 +89,6 @@ class AppFixtures extends Fixture
 					}
 				}
 			}
-			
-			$entityLivre = new Livre();
-			$entityLivre->setId(55677821);
-			$entityLivre->setTitre("Le seigneur des anneaux");
-			$entityLivre->setAuteur("J.R.R. TOLKIEN");
-			$entityLivre->setISBN("2075134049");
-			$entityLivre->setNbPages(736);
-			$entityLivre->setDateDeParution("03/10/19");
-			$entityLivre->setPrix("8.90");
-			$entityLivre->setDisponibilite(1);
-			$entityLivre->setImage("/images/51O0yBHs+OL._SL140_.jpg");
-			$manager->persist($entityLivre);
-			$entityLivre = new Livre();
-			$entityLivre->setId(55897821);
-			$entityLivre->setTitre("Un paradis trompeur");
-			$entityLivre->setAuteur("Henning Mankell");
-			$entityLivre->setISBN("275784797X");
-			$entityLivre->setNbPages(400);
-			$entityLivre->setDateDeParution("09/10/14");
-			$entityLivre->setPrix("6.80");
-			$entityLivre->setDisponibilite(1);
-			$entityLivre->setImage("/images/71uwoF4hncL._SL140_.jpg");
-			$manager->persist($entityLivre);
-			$entityLivre = new Livre();
-			$entityLivre->setId(56299459);
-			$entityLivre->setTitre("Dôme tome 1");
-			$entityLivre->setAuteur("Stephen King");
-			$entityLivre->setISBN("2212110685");
-			$entityLivre->setNbPages(840);
-			$entityLivre->setDateDeParution("06/03/13");
-			$entityLivre->setPrix("8.90");
-			$entityLivre->setDisponibilite(1);
-			$entityLivre->setImage("/images/719FffADQAL._SL140_.jpg");
-			$manager->persist($entityLivre);
-			$manager->flush();
 		}
     }
 }
