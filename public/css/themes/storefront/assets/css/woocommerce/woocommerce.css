@@ -286,6 +286,15 @@ ul.products li.product .woocommerce-LoopProduct-link {
   background: lavenderblush;
   border-radius: 10px;
   display: block;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.wc-block-grid__products .wc-block-grid__product .woocommerce-LoopProduct-link:hover,
+.wc-block-grid__products li.product .woocommerce-LoopProduct-link:hover,
+ul.products .wc-block-grid__product .woocommerce-LoopProduct-link:hover,
+ul.products li.product .woocommerce-LoopProduct-link:hover {
+    
+    box-shadow: 10px 10px 0px 0px #000;
 }
 .wc-block-grid__products .wc-block-grid__product .price,
 .wc-block-grid__products li.product .price,
