@@ -233,7 +233,9 @@ h6 a {
 h1 {
  font-size:2.617924em;
  line-height:1.214;
- letter-spacing:-1px
+ letter-spacing:-1px;
+ display: flex;
+ justify-content: center;
 }
 .beta,
 h2 {
