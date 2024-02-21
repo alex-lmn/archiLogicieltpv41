@@ -15,13 +15,14 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class DefaultController extends AbstractController
 {
-	private EntityManagerInterface $entityManager;
-	private LoggerInterface $logger;
-	
-	public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger)  {
-		$this->entityManager = $entityManager;
-		$this->logger = $logger;
-	}
+    private EntityManagerInterface $entityManager;
+    private LoggerInterface $logger;
+
+    public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger)
+    {
+        $this->entityManager = $entityManager;
+        $this->logger = $logger;
+    }
 
     #[Route('/', name: 'homepage')]
     public function indexAction(Request $request, LoggerInterface $logger): Response
@@ -30,6 +31,6 @@ class DefaultController extends AbstractController
         //return $this->render('default/index.html.twig', [
         //    'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         //]);
-		return $this->redirectToRoute('afficheRecherche');
+        return $this->redirectToRoute('afficheRecherche');
     }
 }

@@ -6,7 +6,7 @@
 	],                                                  
 	"settings": {	                                    
 	    "intelephense.environment.includePaths": [	    
-	      	"C:\\Users\\alexl\\symfony\\vendor"       
+	      	"C:\\Users\\evjeu\\symfony\\vendor"       
 	    ],                                       	    
 	}            	                                    
 }              	                                    
