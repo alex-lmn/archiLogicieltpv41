@@ -114,6 +114,21 @@ class PanierController extends AbstractController
 	#[Route('/commanderPanier', name: 'commanderPanier')]
 	public function commanderPanierAction(Request $request): Response
 	{
-		return $this->render('commande.html.twig');
+		$session = $request->getSession();
+		if (!$session->isStarted())
+			$session->start();
+		if ($session->has("panier"))
+			$this->panier = $session->get("panier");
+		else
+			$this->panier = new Panier();
+		return $this->render('commande.html.twig', [
+			'panier' => $this->panier,
+		]);
+	}
+
+	#[Route('/contactCommande', name: 'contactCommande')]
+	public function commandeContactAction(Request $request): Response
+	{
+		return $this->render('formCommande.html.twig');
 	}
 }
