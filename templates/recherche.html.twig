@@ -15,6 +15,11 @@
             right: 0;
         }
 
+        button {
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
     </style>
 {% endblock %}
 
@@ -31,11 +36,13 @@
         <div class="col-full">
             <div id="primary">
                 <main id="main" class="site-main" role="main">
-                    <header class="woocommerce-products-header">
-                        <h1 class="woocommerce-products-header__title page-title">Résultats de la recherche</h1>
-                    </header>
-                    <form action="{{ path('afficheRechercheParMotCle') }}" method="GET">
-                        <input type="text" name="motCle" placeholder="Rechercher..." />
+                    {% if app.request.query.get('motCle') is not empty %}
+                        <header class="woocommerce-products-header">
+                            <h1 class="woocommerce-products-header__title page-title">Résultats de la recherche</h1>
+                        </header>
+                    {% endif %}
+                    <form action="{{ path('afficheRechercheParMotCle') }}" method="GET" style="display: flex; justify-content: center;">
+                        <input type="text" name="motCle" placeholder="Rechercher..." style="margin-right: 10px;" />
                         <button type="submit">Rechercher</button>
                     </form>
                     <ul class="products">
