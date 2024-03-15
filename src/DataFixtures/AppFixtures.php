@@ -9,9 +9,9 @@ use GuzzleHttp\Client;
 
 use DeezerAPI\Search;
 
-use App\Entity\Catalogue\Livre;
 use App\Entity\Catalogue\Musique;
 use App\Entity\Catalogue\Piste;
+use App\Entity\Catalogue\Article;
 
 use Psr\Log\LoggerInterface;
 
@@ -90,5 +90,33 @@ class AppFixtures extends Fixture
 				}
 			}
 		}
+		$ArticleMontre = new Article();
+		$ArticleMontre->setId(1);
+		$ArticleMontre->setTitre("Montre de luxe JOHNNY");
+		$ArticleMontre->setPrix(10.99);
+		$ArticleMontre->setDisponibilite(1);
+		$ArticleMontre->setImage("../images/montre.png");
+
+		$manager->persist($ArticleMontre);
+
+		$ArticleCouette = new Article();
+		$ArticleCouette->setId(2);
+		$ArticleCouette->setTitre("Couette JOHNNY");
+		$ArticleCouette->setPrix(20.99);
+		$ArticleCouette->setDisponibilite(10);
+		$ArticleCouette->setImage("../images/couette.png");
+
+		$manager->persist($ArticleCouette);
+
+		$ArticleCollier = new Article();
+		$ArticleCollier->setId(3);
+		$ArticleCollier->setTitre("Collier LOUP JOHNNY");
+		$ArticleCollier->setPrix(459.99);
+		$ArticleCollier->setDisponibilite(5);
+		$ArticleCollier->setImage("../images/collier.png");
+
+		$manager->persist($ArticleCollier);
+
+		$manager->flush();
 	}
 }
