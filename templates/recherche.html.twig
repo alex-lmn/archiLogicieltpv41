@@ -2,9 +2,31 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" id="jplayer-css" href="/js/jplayer-2.9.2/skin/blue.monday/css/jplayer.blue.monday.css" type="text/css" />
+    <style>
+        #popup {
+            position: fixed;
+            z-index: 1000;
+        }
+        #close {
+            position: absolute;
+            padding: 3px;
+            border-radius: 0 30% 0 0;
+            top: 0;
+            right: 0;
+        }
+
+    </style>
 {% endblock %}
 
 {% block body %}
+
+    <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid black;">
+        <button id="close">X</button>
+        <p style="margin: 10px;">Voulez-vous aller dans le panier ou continuer les achats ?</p>
+        <button id="button1" style="margin: 3px;">Aller dans le panier</button>
+        <button id="button2" style="margin: 3px;">Continuer les achats</button>
+    </div>
+
     <div id="content" class="site-content" tabindex="-1">
         <div class="col-full">
             <div id="primary">
@@ -36,10 +58,7 @@
                                         <span class="amount">{{ article.prix }} €</span>
                                     </ins></span>
 
-                            </a> <a
-                                href="/ajouterLigne?id={{ article.id }}"
-                                class="button product_type_simple add_to_cart_button">Mettre
-                                    dans le panier</a>
+                            </a> <a href="#" onclick="showPopup('{{ article.id }}')" class="button product_type_simple add_to_cart_button">Mettre dans le panier</a>
                                     {% if article.pistes is defined %}
                                         {% if article.pistes|length > 0 %}
                                     <div id="jquery_jplayer_{{ article.id }}" class="jp-jplayer" data-idArticle="{{ article.id }}"  data-pistes="{{ article.pistes|json_encode() }}"></div>
@@ -83,4 +102,35 @@
     <script type="text/javascript" src="/js/jplayer-2.9.2/jplayer/jquery.jplayer.min.js"></script>
     <script type="text/javascript" src="/js/jplayer-2.9.2/add-on/jplayer.playlist.min.js"></script>
     <script type="text/javascript" src="/js/audio.js"></script>
+    <script>
+
+    function showPopup(articleId) {
+        var popup = document.getElementById('popup');
+        var body = document.body;
+
+        body.style.overflow = 'hidden';
+        
+        var button1 = popup.querySelector('#button1');
+        var button2 = popup.querySelector('#button2');
+        var close = popup.querySelector('#close');
+        
+        button1.onclick = function() {
+            window.location.href = '/ajouterLigne?id=' + articleId;
+        };
+        button2.onclick = function() {
+            popup.style.display = 'none';
+            window.location.href = '/ajouterLigne?id=' + articleId;
+            window.location.href = '/afficheRecherche';
+            body.style.overflow = 'auto';
+        };
+        close.onclick = function() {
+            popup.style.display = 'none';
+            body.style.overflow = 'auto';
+        };
+
+        popup.style.display = 'block';
+    }
+</script>
 {% endblock %}
+
+
