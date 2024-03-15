@@ -134,7 +134,7 @@ class Ebay{
 	*
     * @return string $result in xml format ou null
     */
-    public function findItemsAdvanced(string $keywords = 'Harry Potter', int $entries_per_page = 3): ?string
+    public function findItemsAdvanced(string $keywords = 'Evan', int $entries_per_page = 3): ?string
 	{
 		// https://www.developer.ebay.com/DevZone/finding/CallRef/findItemsAdvanced.html
 		$result = null ;
