@@ -1,8 +1,40 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-				<header id="header" class="col-full">
-					<div id="logo">
-						<h1 class="site-title">Site web marchand</h1>
-					</div>
-				</header>
+    <div id="main" class="col-full">
+        <div id="content" class="col-left">
+            <div class="post">
+                <h2 class="title">Votre commande a bien été enregistrée</h2>
+                <div class="entry">
+                    <p>Merci pour votre commande. Vous recevrez un email de confirmation dans quelques minutes.</p>
+                    <h3>Produits commandés :</h3>
+                    <ul style="list-style-type: none;">
+                        {% for ligne in panier.getLignesPanier %}
+                            <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                                <img src="{{ ligne.getArticle().getImage() }}" alt="{{ ligne.getArticle().getTitre() }}" style="max-width: 100px; border-radius: 10px;">
+                                <span style="font-size: 18px; margin-left: 10px;">{{ ligne.getArticle().getTitre() }} - {{ ligne.getQuantite() }} pièce(s)</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+				<a href="/afficheRecherche" id="backBtn">Retour à l'accueil</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+{% block stylesheets %}
+    <style>
+        #backBtn {
+			display: inline-block;
+			padding: 10px 20px; 
+			background-color: #333; 
+			margin-bottom: 20px; 
+			color: white; 
+			text-decoration: none; 
+			border-radius: 5px;
+		}
+        #backBtn:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+{% endblock %}
+

@@ -8,6 +8,7 @@
 						<div class="entry-content">
 							<div class="woocommerce">
 								<form
+									id="panier-form"
 									class="woocommerce-cart-form"							
 									action="/recalculerPanier"
 									name="panier" method="post">
@@ -47,10 +48,6 @@
 												<td class="product-subtotal"><span class="amount">{{ lignePanier.prixTotal }}€</span></td>
 											</tr>
 											{% endfor %}
-											<tr>
-												<td class="actions" colspan="6"><input class="button"
-													type="submit" value="Mise à jour du panier" name="update_cart" /></td>
-											</tr>
 										</tbody>
 									</table>
 								</form>
@@ -77,7 +74,7 @@
 										</table>
 										<div class="wc-proceed-to-checkout">
 											<a
-												href="/commanderPanier"
+												href="/contactCommande"
 												class="checkout-button button alt wc-forward">Effectuer la
 												commande</a>
 										</div>
@@ -87,4 +84,15 @@
 						</div>
 					</div><!-- .col-full -->
 				</div><!-- #content -->
+{% endblock %}
+{% block javascripts %}
+    <script>
+        const quantityInputs = document.querySelectorAll('.input-text.qty.text');
+
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                document.getElementById('panier-form').submit();
+            });
+        });
+    </script>
 {% endblock %}
