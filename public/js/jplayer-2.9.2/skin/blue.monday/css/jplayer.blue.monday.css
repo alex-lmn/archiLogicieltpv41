@@ -98,7 +98,7 @@
   width: 100%; }
 
 .jp-audio .jp-interface {
-  height: 80px; }
+  height: 65px; }
 
 .jp-audio-stream .jp-interface {
   height: 80px; }
@@ -122,8 +122,11 @@
   overflow: hidden; }
 
 .jp-audio .jp-controls {
-  width: 380px;
-  padding: 20px 20px 0 20px; }
+  display: flex;
+  width: 170px;
+  padding: 20px 20px 0 20px;
+  align-content: center;
+  justify-content: space-between; }
 
 .jp-audio-stream .jp-controls {
   position: absolute;
@@ -172,8 +175,7 @@
   margin-top: 6px; }
 
 .jp-stop {
-  background: url("../image/jplayer.blue.monday.jpg") 0 -83px no-repeat;
-  margin-left: 10px; }
+  background: url("../image/jplayer.blue.monday.jpg") 0 -83px no-repeat; }
 
 .jp-stop:focus {
   background: url("../image/jplayer.blue.monday.jpg") -29px -83px no-repeat; }
