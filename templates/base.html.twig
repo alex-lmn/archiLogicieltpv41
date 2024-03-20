@@ -55,6 +55,11 @@
 					<span>Connexion</span>
 				</button>
 			</div>
+			<div id="inscription">
+				<button id="loginBtn" style="margin: 3px;" >
+					<span>Inscription</span>
+				</button>
+			</div>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
 					<span>Menu</span>
@@ -80,6 +85,10 @@
     				var registerBtn = document.getElementById("registerBtn");
     				registerBtn.addEventListener("click", function() {
         				window.location.href = "/register";
+    				});
+					var loginBtn = document.getElementById("loginBtn");
+    				loginBtn.addEventListener("click", function() {
+        				window.location.href = "/login";
     				});
 				</script>
 				{% block javascripts %}{% endblock %}

@@ -2225,3 +2225,9 @@ button.menu-toggle:after {
   top: 5px;
   right: 20px;
 }
+
+#loginBtn {
+  position: absolute;
+  top: 5px;
+  right: 160px;
+}
