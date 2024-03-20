@@ -2118,7 +2118,8 @@ button.menu-toggle:after {
   }
   .main-navigation ul.menu > li > a,
   .main-navigation ul.nav-menu > li > a {
-    padding: 1.618em 1em;
+    padding: 1em 1em;
+    margin-bottom: 0.5em;
   }
   .main-navigation ul.menu > li.menu-item-has-children:hover:after,
   .main-navigation ul.menu > li.page_item_has_children:hover:after,
