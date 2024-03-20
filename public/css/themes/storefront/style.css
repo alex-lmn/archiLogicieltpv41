@@ -1429,30 +1429,29 @@ button.menu-toggle:after {
   border-width: 1px 0;
   text-align: center;
   clear: both;
-  
 }
-.pagination a{
+.pagination a {
   color: white;
   padding: 10px 14px;
   background-color: #43454b;
   font-weight: 600;
 }
-.pagination .current{
+.pagination .current {
   background-color: white;
   border: 1px solid #43454b;
   color: #43454b;
   padding: 10px 14px;
   font-weight: 600;
 }
-.pagination .first{
+.pagination .first {
 }
-.pagination .previous{
+.pagination .previous {
 }
-.pagination .next{
+.pagination .next {
 }
-.pagination .last{
+.pagination .last {
 }
-.pagination .page{
+.pagination .page {
 }
 
 .pagination ul.page-numbers:after,
@@ -2219,4 +2218,10 @@ button.menu-toggle:after {
     margin-right: 1.41575em;
     padding: 0;
   }
+}
+
+#registerBtn {
+  position: absolute;
+  top: 5px;
+  right: 20px;
 }

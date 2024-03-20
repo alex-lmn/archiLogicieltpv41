@@ -50,6 +50,11 @@
 			<div id="logo">
 				<h1 class="site-title">JOHNNY FANYDAY</h1>
 			</div>
+			<div id="connexion">
+				<button id="registerBtn" style="margin: 3px;" >
+					<span>Connexion</span>
+				</button>
+			</div>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
 					<span>Menu</span>
@@ -70,6 +75,13 @@
 			<div id="inner-wrapper"> {% block body %}{% endblock %}
 				<script type="text/javascript" src="/js/themes/storefront/assets/js/navigation.min.js"></script>
 				<script type="text/javascript" src="/js/jquery-3.6.3.min.js"></script>
+				<script type="text/javascript" src="/js/.js"></script>
+				<script type="text/javascript">
+    				var registerBtn = document.getElementById("registerBtn");
+    				registerBtn.addEventListener("click", function() {
+        				window.location.href = "/register";
+    				});
+				</script>
 				{% block javascripts %}{% endblock %}
 				<footer id="footer" class="col-full">
 					<div id="credit" class="col-right">
