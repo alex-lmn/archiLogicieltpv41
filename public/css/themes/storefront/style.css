@@ -941,7 +941,7 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   border: 0;
-  border-radius: 0;
+  border-radius: 5px;
   background: none;
   background-color: #43454b;
   border-color: #43454b;
@@ -1433,56 +1433,28 @@ button.menu-toggle:after {
 }
 .pagination a{
   color: white;
-}
-.pagination .first{
-  background-color: #43454b;
   padding: 10px 14px;
-  font-weight: 600;
-  text-shadow: none;
-  display: inline-block;
-  -webkit-appearance: none;
-}
-.pagination .previous{
   background-color: #43454b;
-  padding: 10px 14px;
   font-weight: 600;
-  text-shadow: none;
-  display: inline-block;
-  -webkit-appearance: none;
-}
-.pagination .next{
-  background-color: #43454b;
-  padding: 10px 14px;
-  font-weight: 600;
-  text-shadow: none;
-  display: inline-block;
-  -webkit-appearance: none;
-}
-.pagination .last{
-  background-color: #43454b;
-  padding: 10px 14px;
-  font-weight: 600;
-  text-shadow: none;
-  display: inline-block;
-  -webkit-appearance: none;
-}
-.pagination .page{
-  background-color: #43454b;
-  padding: 10px 14px;
-  font-weight: 600;
-  text-shadow: none;
-  display: inline-block;
-  -webkit-appearance: none;
 }
 .pagination .current{
-  background-color: #43454b;
-  color: white;
+  background-color: white;
+  border: 1px solid #43454b;
+  color: #43454b;
   padding: 10px 14px;
   font-weight: 600;
-  text-shadow: none;
-  display: inline-block;
-  -webkit-appearance: none;
 }
+.pagination .first{
+}
+.pagination .previous{
+}
+.pagination .next{
+}
+.pagination .last{
+}
+.pagination .page{
+}
+
 .pagination ul.page-numbers:after,
 .pagination ul.page-numbers:before,
 .woocommerce-pagination ul.page-numbers:after,
