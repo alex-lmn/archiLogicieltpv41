@@ -31,7 +31,7 @@ class AppFixtures extends Fixture
 			//$ebay->setCategory('CDs');
 			$keywords = 'Johnny Hallyday';
 
-			$formattedResponse = $ebay->findItemsAdvanced($keywords, 30);
+			$formattedResponse = $ebay->findItemsAdvanced($keywords, 180);
 			file_put_contents("ebayResponse.xml", $formattedResponse);
 			$xml = simplexml_load_string($formattedResponse);
 
