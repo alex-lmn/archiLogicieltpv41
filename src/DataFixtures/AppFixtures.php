@@ -46,8 +46,7 @@ class AppFixtures extends Fixture
 							$entityMusique->setTitre($title);
 							$artist = $ebay->getItemSpecific("Artist", $child_1->itemId);
 							if ($artist == null) $artist = "";
-							$entityMusique->setArtiste($artist);
-							$entityMusique->setDateDeParution("");
+							$entityMusique->setArtiste($artist);							
 							$entityMusique->setPrix((float) $child_1->sellingStatus->currentPrice);
 							$entityMusique->setDisponibilite(1);
 							$entityMusique->setImage($child_1->galleryURL);
