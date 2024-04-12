@@ -289,12 +289,13 @@ ul.products li.product .woocommerce-LoopProduct-link {
   box-shadow: none;
   transition: box-shadow 0.3s ease-in-out;
 }
-.wc-block-grid__products .wc-block-grid__product .woocommerce-LoopProduct-link:hover,
+.wc-block-grid__products
+  .wc-block-grid__product
+  .woocommerce-LoopProduct-link:hover,
 .wc-block-grid__products li.product .woocommerce-LoopProduct-link:hover,
 ul.products .wc-block-grid__product .woocommerce-LoopProduct-link:hover,
 ul.products li.product .woocommerce-LoopProduct-link:hover {
-    
-    box-shadow: 10px 10px 0px 0px #00000086;
+  box-shadow: 10px 10px 0px 0px #00000086;
 }
 .wc-block-grid__products .wc-block-grid__product .price,
 .wc-block-grid__products li.product .price,
@@ -2958,4 +2959,23 @@ dl.variation dd {
   body:not(.page-template-template-fullwidth-php) table.cart th {
     padding: 1em;
   }
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loginForm input[type="submit"] {
+  margin-top: 20px;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.registerForm input[type="submit"] {
+  margin-top: 20px;
 }
